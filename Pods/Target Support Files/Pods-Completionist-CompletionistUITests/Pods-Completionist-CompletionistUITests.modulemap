@@ -1,0 +1,6 @@
+framework module Pods_Completionist_CompletionistUITests {
+  umbrella header "Pods-Completionist-CompletionistUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

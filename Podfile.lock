@@ -1,0 +1,150 @@
+PODS:
+  - AppAuth (1.3.0):
+    - AppAuth/Core (= 1.3.0)
+    - AppAuth/ExternalUserAgent (= 1.3.0)
+  - AppAuth/Core (1.3.0)
+  - AppAuth/ExternalUserAgent (1.3.0)
+  - Firebase/Auth (6.22.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 6.5.1)
+  - Firebase/CoreOnly (6.22.0):
+    - FirebaseCore (= 6.6.6)
+  - Firebase/Database (6.22.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 6.1.4)
+  - FirebaseAuth (6.5.1):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 6.6)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.5)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseAuthInterop (1.1.0)
+  - FirebaseCore (6.6.6):
+    - FirebaseCoreDiagnostics (~> 1.2)
+    - FirebaseCoreDiagnosticsInterop (~> 1.2)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GoogleUtilities/Logger (~> 6.5)
+  - FirebaseCoreDiagnostics (1.2.3):
+    - FirebaseCoreDiagnosticsInterop (~> 1.2)
+    - GoogleDataTransportCCTSupport (~> 2.0)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GoogleUtilities/Logger (~> 6.5)
+    - nanopb (~> 0.3.901)
+  - FirebaseCoreDiagnosticsInterop (1.2.0)
+  - FirebaseDatabase (6.1.4):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 6.0)
+    - leveldb-library (~> 1.22)
+  - FirebaseUI/Auth (8.4.2):
+    - Firebase/Auth (~> 6.0)
+    - GoogleUtilities/UserDefaults
+  - FirebaseUI/Google (8.4.2):
+    - FirebaseUI/Auth
+    - GoogleSignIn (~> 5.0)
+  - GoogleDataTransport (5.0.0)
+  - GoogleDataTransportCCTSupport (2.0.0):
+    - GoogleDataTransport (~> 5.0)
+    - nanopb (~> 0.3.901)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleUtilities/AppDelegateSwizzler (6.5.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.5.2)
+  - GoogleUtilities/Logger (6.5.2):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/Network (6.5.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.5.2)"
+  - GoogleUtilities/Reachability (6.5.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.5.2):
+    - GoogleUtilities/Logger
+  - GTMAppAuth (1.0.0):
+    - AppAuth/Core (~> 1.0)
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.3.1):
+    - GTMSessionFetcher/Full (= 1.3.1)
+  - GTMSessionFetcher/Core (1.3.1)
+  - GTMSessionFetcher/Full (1.3.1):
+    - GTMSessionFetcher/Core (= 1.3.1)
+  - IGDB-SWIFT-API (0.2.1):
+    - Just
+    - SwiftProtobuf (~> 1.0)
+  - Just (0.8.0)
+  - leveldb-library (1.22)
+  - nanopb (0.3.9011):
+    - nanopb/decode (= 0.3.9011)
+    - nanopb/encode (= 0.3.9011)
+  - nanopb/decode (0.3.9011)
+  - nanopb/encode (0.3.9011)
+  - SwiftProtobuf (1.8.0)
+
+DEPENDENCIES:
+  - Firebase/Auth
+  - Firebase/Database
+  - FirebaseUI/Google
+  - GoogleDataTransport (= 5.0.0)
+  - IGDB-SWIFT-API (from `https://github.com/husnjak/IGDB-API-SWIFT.git`)
+
+SPEC REPOS:
+  trunk:
+    - AppAuth
+    - Firebase
+    - FirebaseAuth
+    - FirebaseAuthInterop
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCoreDiagnosticsInterop
+    - FirebaseDatabase
+    - FirebaseUI
+    - GoogleDataTransport
+    - GoogleDataTransportCCTSupport
+    - GoogleSignIn
+    - GoogleUtilities
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - Just
+    - leveldb-library
+    - nanopb
+    - SwiftProtobuf
+
+EXTERNAL SOURCES:
+  IGDB-SWIFT-API:
+    :git: https://github.com/husnjak/IGDB-API-SWIFT.git
+
+CHECKOUT OPTIONS:
+  IGDB-SWIFT-API:
+    :commit: 7a64a4a25c357709337de1af94d05eaccc100199
+    :git: https://github.com/husnjak/IGDB-API-SWIFT.git
+
+SPEC CHECKSUMS:
+  AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
+  Firebase: 32f9520684e87c7af3f0704f7f88042626d6b536
+  FirebaseAuth: a6da11d78dfd956b7f7af3222a0f0b1c93ef8fc9
+  FirebaseAuthInterop: a0f37ae05833af156e72028f648d313f7e7592e9
+  FirebaseCore: 9aca0f1fffb405176ba15311a5621fcde4106fcf
+  FirebaseCoreDiagnostics: 13a6564cd6d5375066bbc8940cc1753af24497f3
+  FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
+  FirebaseDatabase: 0144e0706a4761f1b0e8679572eba8095ddb59be
+  FirebaseUI: e57e9b9c4340631151fbe67a14206d23d0974f37
+  GoogleDataTransport: a857c6a002d201b524dd4bc2ed7e7355ed07e785
+  GoogleDataTransportCCTSupport: 32f75fbe904c82772fcbb6b6bd4525bfb6f2a862
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
+  GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
+  GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
+  GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
+  IGDB-SWIFT-API: 8171c8cff2a6cdfe51b8593a9ec1a0a557afb692
+  Just: aef5105fb2c7069b65aa6f21aec8f429057f9c19
+  leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  SwiftProtobuf: 2cbd9409689b7df170d82a92a33443c8e3e14a70
+
+PODFILE CHECKSUM: 7a77b14572fbbf817dac1293a04833d927b5d09c
+
+COCOAPODS: 1.9.1
