@@ -20,22 +20,19 @@ struct App: View {
 
     var body: some View {
         TabView(selection: $selection){
-            Text("First View")
-                .font(.title)
-                .tabItem {
+            HomePage().tabItem {
                     VStack {
                         Image("first")
                         Text("First")
                     }
-                }
-                .tag(0)
+                }.tag(0)
             HStack{
             Text("Second View")
             .font(.title)
             
-                Button(action: signOut){
-                    Text("Sign Out")
-                }
+            Button(action: signOut){
+                Text("Sign Out")
+            }
             
             }.tabItem {
                 VStack {
@@ -43,31 +40,6 @@ struct App: View {
                     Text("Second")
                 }
             }.tag(1)
-        }
-    }
-    
-    func getDataBase (){
-        let wrapper:IGDBWrapper = IGDBWrapper()
-        var ref: DatabaseReference!
-        //var IGDB_User_Key: String
-        ref = Database.database().reference()
-        
-        ref.child("IGDB_User_Key").observeSingleEvent(of: .value, with: { (snapshot) in
-          wrapper.userKey = snapshot.value as? String ?? ""
-
-          }) { (error) in
-            print(error.localizedDescription)
-        }
-          
-        let apicalypse = APICalypse()
-            .search(searchQuery: "Halo")
-            .fields(fields: "*")
-            .sort(field: "release_dates.date", order: .ASCENDING)
-
-        wrapper.search(apiCalypse: apicalypse, result: { searchResults in
-            print(searchResults)
-        }) { error in
-            print(error)
         }
     }
     

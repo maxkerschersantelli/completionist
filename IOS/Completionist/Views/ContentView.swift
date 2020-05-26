@@ -16,8 +16,6 @@ struct ContentView : View {
 
   @EnvironmentObject var session: SessionStore
     
-  
-
   func getUser () {
     session.listen()
   }
