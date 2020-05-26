@@ -10,87 +10,89 @@ import Foundation
 import SwiftUI
 
 struct GameDetail: View {
-    @State var game: Game?
-      @ObservedObject var imageLoader = ImageLoader()
+    @State var hasGame: Bool = false
+    @ObservedObject var imageLoader = ImageLoader()
       
-      var gameId: Int
-      
-      var body: some View {
-          Group {
-            if (self.game != nil) {
-                 List {
-                      PosterView(image: self.imageLoader.image)
-                          .onAppear {
-                              if let url = self.game?.coverURL {
-                                  self.imageLoader.downloadImage(url: url)
-                              }
-                      }
+    var gameId: Int
+    @State var game: Game
+    
+    var body: some View {
+        Group {
+            if (self.hasGame) {
+                List {
+                    PosterView(image: self.imageLoader.image)
+                        .onAppear {
+                            if let url = self.game.coverURL {
+                                self.imageLoader.downloadImage(url: url)
+                            }
+                    }
                       
-                    GameSectionView(game: self.game!)
-                  }
-              } else {
-                  Loading()
-              }
-          }
-          .edgesIgnoringSafeArea([.top])
-          .onAppear {
+                    GameSectionView(game: self.game)
+                }
+            } else {
+                Loading()
+            }
+        }
+        .edgesIgnoringSafeArea([.top])
+        .onAppear {
+            print("whyyyyy")
             GameStore.shared.fetchGame(id: self.gameId) {[self] (result) in
                   
-                  switch result {
-                  case .success(let game):
-                      self.game = game
-                      
-                  case .failure(let error):
-                      print(error.localizedDescription)
-                  }
-              }
-          }
-      }
-  }
+                switch result {
+                case .success(let game):
+                    self.game = game
+                    self.hasGame = true
+                    
+                case .failure(let error): print(error.localizedDescription)
+                }
+            }
+        }
+    }
+}
 
-  struct PosterView: View {
+struct PosterView: View {
       
-      var image: UIImage?
-      var body: some View {
-          ZStack {
-              Rectangle()
-                  .foregroundColor(.gray)
-                  .aspectRatio(500/750, contentMode: .fit)
-              
-              if (image != nil) {
-                  Image(uiImage: self.image!)
-                      .resizable()
-                      .aspectRatio(500/750, contentMode: .fit)
-              }
-          }
+    var image: UIImage?
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .foregroundColor(.gray)
+                .aspectRatio(500/750, contentMode: .fit)
+            
+            if (image != nil) {
+                Image(uiImage: self.image!)
+                    .resizable()
+                    .aspectRatio(500/750, contentMode: .fit)
+            }
+        }
           
-      }
+    }
       
-  }
+}
 
 
-  struct GameSectionView: View {
+struct GameSectionView: View {
       
-      var game: Game
+    var game: Game
 
-      var body: some View {
-          Section {
-              Text(game.summary)
-                  .font(.body)
-                  .lineLimit(nil)
-              
-              if (!game.storyline.isEmpty) {
-                  Text(game.storyline)
-                      .font(.body)
-                      .lineLimit(nil)
+    var body: some View {
+        Section {
+            Text(game.summary)
+                .font(.body)
+                .lineLimit(nil)
+            
+            if (!game.storyline.isEmpty) {
+                Text(game.storyline)
+                    .font(.body)
+                    .lineLimit(nil)
                   
-              }
-              Text(game.genreText)
-                  .font(.subheadline)
-              Text(game.releaseDateText)
-                  .font(.subheadline)
-              Text(game.company)
-                  .font(.subheadline)
-          }
-      }
-  }
+            }
+            Text(game.genreText)
+                .font(.subheadline)
+            Text(game.releaseDateText)
+                .font(.subheadline)
+            Text(game.company)
+                .font(.subheadline)
+        }
+    }
+}

@@ -46,6 +46,7 @@ class GameStore: GameService {
     }
     
     func fetchGame(id: Int, completion: @escaping (Result<Game, Error>) -> Void) {
+        print("fetch game start")
         iGDB.apiRequest(endpoint: .GAMES, apicalypseQuery: "fields name, summary, genres.name, storyline, first_release_date, screenshots.image_id, id, popularity, rating, cover.image_id, involved_companies.company.name; where id = \(id);", dataResponse: { (bytes) -> (Void) in
             guard let protoGame = try? Proto_GameResult(serializedData: bytes).games.first else {
                 return
@@ -58,6 +59,7 @@ class GameStore: GameService {
                 completion(.failure(error))
             }
         }
+        print("fetch game end")
     }
 }
 
@@ -74,7 +76,7 @@ fileprivate extension Game {
         
         let company = game.involvedCompanies.first?.company.name ?? ""
         let genres = game.genres.map { $0.name }
-        print(game.id)
+
         self.init(id: Int(game.id),
                   name: game.name,
                   storyline: game.storyline,
