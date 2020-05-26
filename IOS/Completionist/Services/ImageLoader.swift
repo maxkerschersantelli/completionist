@@ -22,7 +22,7 @@ class ImageLoader: ObservableObject {
             self.image = imageFromCache
             return
         }
-
+print("downloading image")
         URLSession.shared.dataTask(with: url) { (data, res, error) in
             guard let data = data, let image = UIImage(data: data) else {
                 return

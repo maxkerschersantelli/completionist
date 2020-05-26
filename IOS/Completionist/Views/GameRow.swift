@@ -24,6 +24,8 @@ struct GameRow: View {
                         .frame(maxWidth: geometry.size.width)
                         .clipped()
                 }
+            }else{
+                Loading()
             }
             VStack(alignment: .leading) {
                 Text(game.name)

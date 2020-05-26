@@ -39,9 +39,13 @@ struct GameList: View {
                         NavigationLink(destination: GameDetail(gameId: game.id, game: game)) {
                             GameRow(game: game)
                         }
-                    }
-                }.navigationBarTitle(Text("Home Page").foregroundColor(Color.black))
+                    }.navigationBarTitle(Text("Home Page").foregroundColor(Color.black))
+                }
             }
-        }.onAppear(perform: getGameData)
+        }.onAppear{
+            if(self.games.count <= 0){
+                self.getGameData()
+            }
+        }
     }
 }

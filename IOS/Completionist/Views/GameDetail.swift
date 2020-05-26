@@ -17,22 +17,21 @@ struct GameDetail: View {
     
     var body: some View {
         Group {
-                List {
-                    PosterView(image: self.imageLoader.image)
-                        .onAppear {
-                            if let url = self.game.coverURL {
-                                self.imageLoader.downloadImage(url: url)
-                            }
-                    }
-                      
-                    GameSectionView(game: self.game)
+            List {
+                PosterView(image: self.imageLoader.image)
+                    .onAppear {
+                        if let url = self.game.coverURL {
+                            self.imageLoader.downloadImage(url: url)
+                        }
                 }
+                
+                GameSectionView(game: self.game)
+            }
         }
         .edgesIgnoringSafeArea([.top])
         .onAppear {
-            print("whyyyyy")
             GameStore.shared.fetchGame(id: self.gameId) {[self] (result) in
-                  
+                
                 switch result {
                 case .success(let game):
                     self.game = game
@@ -45,7 +44,7 @@ struct GameDetail: View {
 }
 
 struct PosterView: View {
-      
+    
     var image: UIImage?
     var body: some View {
         ZStack {
@@ -59,16 +58,16 @@ struct PosterView: View {
                     .aspectRatio(500/750, contentMode: .fit)
             }
         }
-          
+        
     }
-      
+    
 }
 
 
 struct GameSectionView: View {
-      
+    
     var game: Game
-
+    
     var body: some View {
         Section {
             Text(game.summary)
@@ -79,7 +78,7 @@ struct GameSectionView: View {
                 Text(game.storyline)
                     .font(.body)
                     .lineLimit(nil)
-                  
+                
             }
             Text(game.genreText)
                 .font(.subheadline)
