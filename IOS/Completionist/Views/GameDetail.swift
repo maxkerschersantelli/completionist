@@ -10,7 +10,6 @@ import Foundation
 import SwiftUI
 
 struct GameDetail: View {
-    @State var hasGame: Bool = false
     @ObservedObject var imageLoader = ImageLoader()
       
     var gameId: Int
@@ -18,7 +17,6 @@ struct GameDetail: View {
     
     var body: some View {
         Group {
-            if (self.hasGame) {
                 List {
                     PosterView(image: self.imageLoader.image)
                         .onAppear {
@@ -29,9 +27,6 @@ struct GameDetail: View {
                       
                     GameSectionView(game: self.game)
                 }
-            } else {
-                Loading()
-            }
         }
         .edgesIgnoringSafeArea([.top])
         .onAppear {
@@ -41,7 +36,6 @@ struct GameDetail: View {
                 switch result {
                 case .success(let game):
                     self.game = game
-                    self.hasGame = true
                     
                 case .failure(let error): print(error.localizedDescription)
                 }
@@ -94,5 +88,11 @@ struct GameSectionView: View {
             Text(game.company)
                 .font(.subheadline)
         }
+    }
+}
+
+struct GameDetail_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

@@ -36,7 +36,7 @@ struct GameList: View {
             }else{
                 NavigationView{
                     List(games) { game in
-                        NavigationLink(destination: Loading()) {
+                        NavigationLink(destination: GameDetail(gameId: game.id, game: game)) {
                             GameRow(game: game)
                         }
                     }
