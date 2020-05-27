@@ -26,6 +26,7 @@ struct GameDetail: View {
                 }
                 
                 GameSectionView(game: self.game)
+                PlayedButton(gameID: self.game.id)
             }
         }
         .edgesIgnoringSafeArea([.top])

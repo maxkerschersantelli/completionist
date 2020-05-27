@@ -12,7 +12,7 @@ import Firebase
 import GoogleSignIn
 import IGDB_SWIFT_API
 
-struct GameList: View {
+struct GameFullPageList: View {
     @State var games: [Game] = []
     
     func getGameData(){
@@ -37,7 +37,7 @@ struct GameList: View {
                 NavigationView{
                     List(games) { game in
                         NavigationLink(destination: GameDetail(gameId: game.id, game: game)) {
-                            GameRow(game: game)
+                            GameFullPageRow(game: game)
                         }
                     }.navigationBarTitle(Text("Home Page").foregroundColor(Color.black))
                 }

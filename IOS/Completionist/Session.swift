@@ -102,4 +102,10 @@ class SessionStore : ObservableObject {
         ) {
         Auth.auth().signIn(withEmail: email, password: password, completion: handler)
     }
+    
+    func played(id: Int){
+        print(self.session?.uid ?? String.self)
+        print(id)
+        Database.database().reference().child("users").child(self.session!.uid).child("playedGames").child(String(id)).setValue(true)
+    }
 }

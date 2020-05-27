@@ -18,6 +18,9 @@ struct App: View {
     @EnvironmentObject var session: SessionStore
     
     func getDataBase (){
+        if(apiKey != ""){
+            return
+        }
         print("getDataBase Start")
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -34,31 +37,32 @@ struct App: View {
     var body: some View {
         Group{
             if(apiKey != ""){
-        TabView(selection: $selection){
-            HomePage().tabItem {
-                    VStack {
-                        Image("first")
-                        Text("First")
-                    }
-                }.tag(0)
-            HStack{
-            Text("Second View")
-            .font(.title)
-            
-            Button(action: signOut){
-                Text("Sign Out")
-            }
-            
-            }.tabItem {
-                VStack {
-                    Image("second")
-                    Text("Second")
+                TabView(selection: $selection){
+                    HomePage().tabItem {
+                        VStack {
+                            Image("first")
+                            Text("First")
+                        }
+                    }.tag(0)
+                    HStack{
+                        Text("Second View")
+                            .font(.title)
+                        
+                        Button(action: signOut){
+                            Text("Sign Out")
+                        }
+                        
+                    }.tabItem {
+                        VStack {
+                            Image("second")
+                            Text("Second")
+                        }
+                    }.tag(1)
                 }
-            }.tag(1)
-        }
             }else{
                 Loading()
-            }}
+            }
+        }
         .onAppear(perform: getDataBase)
     }
     

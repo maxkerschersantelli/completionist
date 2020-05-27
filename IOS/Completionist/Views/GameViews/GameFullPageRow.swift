@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct GameRow: View {
+struct GameFullPageRow: View {
     
     var game: Game
     @ObservedObject var imageLoader: ImageLoader = ImageLoader()
@@ -24,8 +24,6 @@ struct GameRow: View {
                         .frame(maxWidth: geometry.size.width)
                         .clipped()
                 }
-            }else{
-                Loading()
             }
             VStack(alignment: .leading) {
                 Text(game.name)
