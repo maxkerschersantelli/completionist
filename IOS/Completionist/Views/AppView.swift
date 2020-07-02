@@ -41,11 +41,20 @@ struct App: View {
                     HomePage().tabItem {
                         VStack {
                             Image("first")
-                            Text("First")
+                            Text("Home")
                         }
                     }.tag(0)
                     HStack{
-                        Text("Second View")
+                        Text("Search")
+                            .font(.title)
+                    }.tabItem {
+                        VStack {
+                            Image("second")
+                            Text("Search")
+                        }
+                    }.tag(1)
+                    HStack{
+                        Text("Profile")
                             .font(.title)
                         
                         Button(action: signOut){
@@ -55,9 +64,9 @@ struct App: View {
                     }.tabItem {
                         VStack {
                             Image("second")
-                            Text("Second")
+                            Text("Profile")
                         }
-                    }.tag(1)
+                    }.tag(2)
                 }
             }else{
                 Loading()

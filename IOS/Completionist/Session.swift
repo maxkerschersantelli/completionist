@@ -38,6 +38,7 @@ struct User {
 class SessionStore : ObservableObject {
     var didChange = PassthroughSubject<SessionStore, Never>()
     var isLoggedIn = false { didSet { self.didChange.send(self) }}
+    var playedGames : NSDictionary = NSDictionary.init();
     @Published var session: User? { didSet { self.didChange.send(self) }}
     var handle: AuthStateDidChangeListenerHandle?
     
@@ -54,6 +55,7 @@ class SessionStore : ObservableObject {
                     uid: user.uid,
                     email: user.email
                 )
+                self.getPlayedGames()
             } else {
                 self.isLoggedIn = false
                 self.session = nil
@@ -104,8 +106,21 @@ class SessionStore : ObservableObject {
     }
     
     func played(id: Int){
-        print(self.session?.uid ?? String.self)
-        print(id)
-        Database.database().reference().child("users").child(self.session!.uid).child("playedGames").child(String(id)).setValue(true)
+        print("adding game")
+        print(String(id))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM-dd-yyyy HH:mm"
+        Database.database().reference().child("users").child(self.session!.uid).child("playedGames").child(String(id)).setValue(["playedLevel": "Played", "rating": 5, "dateAdded": dateFormatter.string(from: Date())])
+        self.getPlayedGames()
+    }
+    
+    func getPlayedGames(){
+        print("getplayedGames")
+        Database.database().reference().child("users").child(self.session!.uid).child("playedGames").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.playedGames = snapshot.value as! NSDictionary
+            print(self.playedGames)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 }

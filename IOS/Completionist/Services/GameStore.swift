@@ -30,7 +30,7 @@ class GameStore: GameService {
     }
     
     func fetchPopularGames(for platform: Platform, completion: @escaping (Result<[Game], Error>) -> Void) {
-        iGDB.apiRequest(endpoint: .GAMES, apicalypseQuery: "fields name, first_release_date, id, popularity, rating, involved_companies.company.name, cover.image_id; where (platforms = (\(platform.rawValue)) & popularity >= 85 & themes != 42); sort first_release_date desc; limit 50;", dataResponse: { bytes in
+        iGDB.apiRequest(endpoint: .GAMES, apicalypseQuery: "fields name, first_release_date, id, popularity, rating, involved_companies.company.name, cover.image_id; where (platforms = (\(platform.rawValue)) & popularity >= 85 & themes != 42); sort first_release_date desc; limit 15;", dataResponse: { bytes in
             guard let gameResults = try? Proto_GameResult(serializedData: bytes) else {
                 return
             }

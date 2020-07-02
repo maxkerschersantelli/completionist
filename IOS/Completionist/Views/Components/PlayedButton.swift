@@ -14,8 +14,15 @@ struct PlayedButton: View {
     @EnvironmentObject var session: SessionStore
     
     var body: some View {
-        Button(action: played){
-            Text("Played")
+        VStack{
+            Button(action: played){
+                if(session.playedGames[self.gameID] != nil){
+                    Text("Played")
+                }else{
+                    Text("Not Played")
+                }
+                
+            }
         }
     }
     

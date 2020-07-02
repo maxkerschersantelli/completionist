@@ -25,7 +25,6 @@ struct GamePlatformList: View {
             switch result {
             case .success(let games):
                 self.games = games
-                print(self.games[0])
                 
             case .failure(let error):
                 print(error.localizedDescription)
@@ -39,9 +38,9 @@ struct GamePlatformList: View {
             GameHorizontalList(games: self.$games)
         }
         .onAppear{
-                if(self.games.count < 1){
-                    self.getGameData()
-                }
+            if(self.games.count < 1){
+                self.getGameData()
+            }
         }
         
     }
