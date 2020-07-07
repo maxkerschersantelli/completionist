@@ -44,24 +44,13 @@ struct App: View {
                             Text("Home")
                         }
                     }.tag(0)
-                    HStack{
-                        Text("Search")
-                            .font(.title)
-                    }.tabItem {
+                    SearchPage().tabItem {
                         VStack {
                             Image("second")
                             Text("Search")
                         }
                     }.tag(1)
-                    HStack{
-                        Text("Profile")
-                            .font(.title)
-                        
-                        Button(action: signOut){
-                            Text("Sign Out")
-                        }
-                        
-                    }.tabItem {
+                    ProfilePage().tabItem{
                         VStack {
                             Image("second")
                             Text("Profile")

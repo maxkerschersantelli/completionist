@@ -37,6 +37,8 @@
 		50CDD6D424480F8F00A99667 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDD6D324480F8F00A99667 /* CustomButton.swift */; };
 		50CDD6D624480FA400A99667 /* CustomInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDD6D524480FA400A99667 /* CustomInput.swift */; };
 		50CDD6D8244816E800A99667 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CDD6D7244816E800A99667 /* SignUp.swift */; };
+		50DF10C224B40DAA0018F9FB /* SearchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DF10C124B40DAA0018F9FB /* SearchPage.swift */; };
+		50DF10C524B40F6D0018F9FB /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DF10C424B40F6D0018F9FB /* ProfilePage.swift */; };
 		50F1275F247DA08C008E85F1 /* GameHorizontalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1275E247DA08C008E85F1 /* GameHorizontalList.swift */; };
 		50F12761247DC7AD008E85F1 /* GamePlatformList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F12760247DC7AD008E85F1 /* GamePlatformList.swift */; };
 		C5CE24FD4627B743710B619B /* Pods_Completionist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7EBF3B77397475733C1123 /* Pods_Completionist.framework */; };
@@ -99,6 +101,8 @@
 		50CDD6D324480F8F00A99667 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		50CDD6D524480FA400A99667 /* CustomInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInput.swift; sourceTree = "<group>"; };
 		50CDD6D7244816E800A99667 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		50DF10C124B40DAA0018F9FB /* SearchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPage.swift; sourceTree = "<group>"; };
+		50DF10C424B40F6D0018F9FB /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 		50F1275E247DA08C008E85F1 /* GameHorizontalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHorizontalList.swift; sourceTree = "<group>"; };
 		50F12760247DC7AD008E85F1 /* GamePlatformList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlatformList.swift; sourceTree = "<group>"; };
 		5F321E8EC5F9B0D3213FDBAF /* Pods-CompletionistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompletionistTests.debug.xcconfig"; path = "Target Support Files/Pods-CompletionistTests/Pods-CompletionistTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 		50CDD6CC24480ECD00A99667 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				50DF10C324B40F550018F9FB /* Profile */,
+				50DF10C024B40D910018F9FB /* Search */,
 				50B70B31247DEFEB007850F3 /* Components */,
 				50F1275D247DA00C008E85F1 /* GameViews */,
 				505117EA244808490026BEF5 /* ContentView.swift */,
@@ -257,6 +263,22 @@
 				508D4279247C4FFA0043A9C7 /* Loading.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		50DF10C024B40D910018F9FB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				50DF10C124B40DAA0018F9FB /* SearchPage.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		50DF10C324B40F550018F9FB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				50DF10C424B40F6D0018F9FB /* ProfilePage.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		50F1275D247DA00C008E85F1 /* GameViews */ = {
@@ -560,6 +582,7 @@
 			files = (
 				508D4280247C95AD0043A9C7 /* Platform.swift in Sources */,
 				50CDD6CB24480E6700A99667 /* Session.swift in Sources */,
+				50DF10C524B40F6D0018F9FB /* ProfilePage.swift in Sources */,
 				50F1275F247DA08C008E85F1 /* GameHorizontalList.swift in Sources */,
 				508D4278247C4C5D0043A9C7 /* HomePage.swift in Sources */,
 				505117E7244808490026BEF5 /* AppDelegate.swift in Sources */,
@@ -573,6 +596,7 @@
 				50B70B30247DED47007850F3 /* GameHorizontalRow.swift in Sources */,
 				508D428A247CAB080043A9C7 /* GameFullPageRow.swift in Sources */,
 				50F12761247DC7AD008E85F1 /* GamePlatformList.swift in Sources */,
+				50DF10C224B40DAA0018F9FB /* SearchPage.swift in Sources */,
 				50CDD6D424480F8F00A99667 /* CustomButton.swift in Sources */,
 				50CDD6CE24480F1400A99667 /* AppView.swift in Sources */,
 				50CDD6D224480F6C00A99667 /* InlineAlert.swift in Sources */,
